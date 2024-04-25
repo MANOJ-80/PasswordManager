@@ -28,7 +28,7 @@ sudo apt install python3-pip
 pip install -r requirements.txt
 ```
     
-## Mysql
+**Install Mysql**
 ```
 sudo apt install mysql-server
 ```
