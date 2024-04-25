@@ -29,24 +29,24 @@ pip install -r requirements.txt
 ```
     
 ### Mysql
-     ```
-     sudo apt install mysql-server
-     ```
+```
+sudo apt install mysql-server
+```
      
 #### Create user 'PasswordManager' and grant permissions
 **Login to mysql as root**  
 
-     ```
-     sudo mysql -u root
-     ```
+```
+sudo mysql -u root
+```
 **Create User**
-     ```
-     CREATE USER 'PasswordManager'@localhost IDENTIFIED BY 'password';
-     ```
+```
+CREATE USER 'PasswordManager'@localhost IDENTIFIED BY 'password';
+```
 **Grant privileges**
-     ```
-     GRANT ALL PRIVILEGES ON *.* TO 'PasswordManager'@localhost IDENTIFIED BY 'password';
-     ```
+```
+GRANT ALL PRIVILEGES ON *.* TO 'PasswordManager'@localhost IDENTIFIED BY 'password';
+```
      
      
 ## Run
