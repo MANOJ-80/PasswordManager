@@ -21,6 +21,7 @@ You need to have python3 to run this Project on Windows, Linux or MacOS
 
     ```
     git clone "https://github.com/MANOJ-80/PasswordManager.git"
+    ```
 
 ### Install Python Requirements
     
