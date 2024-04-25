@@ -17,24 +17,24 @@ You need to have python3 to run this Project on Windows, Linux or MacOS
 
 ## Linux
 
-### Clone this repository to your local machine
+Clone this repository to your local machine
 ```
 git clone https://github.com/MANOJ-80/PasswordManager.git
 ```
 
-### Install Python Requirements
+Install Python Requirements
 ```
 sudo apt install python3-pip
 pip install -r requirements.txt
 ```
     
-### Mysql
+##Mysql
 ```
 sudo apt install mysql-server
 ```
      
-#### Create user 'PasswordManager' and grant permissions
-**Login to mysql as root**  
+Create user 'PasswordManager' and grant permissions
+Login to mysql as root
 
 ```
 sudo mysql -u root
