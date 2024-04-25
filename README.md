@@ -1,6 +1,7 @@
-# Local Hosted Password Manager
+# Password Manager
 
-A secure password manager implemented in Python using MySQL for storing hashes, SHA256 for hashing the master password, PBKDF2 for key hashing, and AES for encryption.
+
+A secure password manager implemented in Python using MySQL, SHA256 for hashing the master password, Uses [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) for key hashing, and AES-256 for encryption/decryption.
 
 ## Features
 
@@ -9,57 +10,108 @@ A secure password manager implemented in Python using MySQL for storing hashes, 
 - **Key Hashing**: Implements PBKDF2 for deriving encryption keys, enhancing security.
 - **MySQL Database**: Password hashes are stored in a MySQL database.
 
-## Prerequisites
 
-Before you begin, ensure you have met the following requirements:
+# Installation
 
-- Python 3.x installed on your machine.
-- MySQL database installed and running.
-- Python packages: `mysql-connector-python`, `cryptography`.
+You need to have python3 to run this Project on Windows, Linux or MacOS
 
-## Setup
+## Linux
 
-1. Clone this repository to your local machine:
+### Clone this repository to your local machine
 
-    ```bash
-    git clone https://github.com/your-username/password-manager.git
     ```
+    git clone "https://github.com/MANOJ-80/PasswordManager.git"
 
-2. Install the required Python packages:
-
-    ```bash
-    pip install mysql-connector-python cryptography
+### Install Python Requirements
+    
     ```
-
-3. Set up your MySQL database by importing the `schema.sql` file:
-
-    ```bash
-    mysql -u your_username -p your_database_name < schema.sql
+    sudo apt install python3-pip
+    pip install -r requirements.txt
     ```
+    
+### Mysql
+     ```
+     sudo apt install mysql-server
+     ```
+     
+#### Create user 'PasswordManager' and grant permissions
+**Login to mysql as root**  
 
-4. Update the `config.py` file with your MySQL database connection details:
+     ```
+     sudo mysql -u root
+     ```
+**Create User**
+     ```
+     CREATE USER 'PasswordManager'@localhost IDENTIFIED BY 'password';
+     ```
+**Grant privileges**
+     ```
+     GRANT ALL PRIVILEGES ON *.* TO 'PasswordManager'@localhost IDENTIFIED BY 'password';
+     ```
+     
+     
+## Run
+### Configure
 
-    ```python
-    DB_HOST = 'localhost'
-    DB_USER = 'your_username'
-    DB_PASSWORD = 'your_password'
-    DB_NAME = 'your_database_name'
-    ```
+You need to first configure the password manager by choosing a MASTER PASSWORD. This config step is only required to be executed once.
+```
+python config.py 
+```
+The above command will make a new configuration by asking you to choose a MASTER PASSWORD.
+This will generate the DEVICE SECRET, create Database and required tables.
 
-## Usage
 
-1. Run the main script:
+### Usage
+```
+python pm.py -h
+usage: pm.py [-h] [-s NAME] [-u URL] [-e EMAIL] [-l LOGIN] [--length LENGTH] [-c] option
 
-    ```bash
-    python password_manager.py
-    ```
+Description
 
-2. Follow the prompts to:
-    - Create a master password.
-    - Add, retrieve, update, or delete passwords.
+positional arguments:
+  option                (a)dd / (e)xtract / (g)enerate
 
-## Security
+optional arguments:
+  -h, --help            show this help message and exit
+  -s NAME, --name NAME  Site name
+  -u URL, --url URL     Site URL
+  -e EMAIL, --email EMAIL
+                        Email
+  -l LOGIN, --login LOGIN
+                        Username
+  --length LENGTH       Length of the password to generate
+  -c, --copy            Copy password to clipboard
+```
 
-- **Master Password**: Ensure your master password is strong and kept confidential.
-- **Database Security**:
-# PasswordManager
+
+### Add entry
+```
+python pm.py add -s mysite -u mysite.com -e hello@email.com -l myusername
+```
+### Retrieve entry
+```
+python pm.py extract
+```
+The above command retrieves all the entries
+```
+python pm.py e -s mysite
+```
+The above command retrieves all the entries whose site name is "mysite"
+```
+python pm.py e -s mysite -l myusername
+```
+The above command retrieves the entry whose site name is "mysite" and username is "myusername"
+```
+python pm.py e -s mysite -l myusername --copy
+```
+The above command copies the password of the site "mysite" and username "myusername" into the clipboard
+### Generate Password
+```
+python pm.py g --length 15
+```
+The above command generates a password of length 15 and copies to clipboard*****
+
+     
+
+
+
