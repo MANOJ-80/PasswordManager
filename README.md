@@ -25,6 +25,7 @@ git clone https://github.com/MANOJ-80/PasswordManager.git
 **Install Python Requirements**
 ```
 sudo apt install python3-pip
+sudo apt-get install xclip
 pip install -r requirements.txt
 ```
     
@@ -45,7 +46,7 @@ CREATE USER 'PasswordManager'@localhost IDENTIFIED BY 'password';
 ```
 **Grant privileges**
 ```
-GRANT ALL PRIVILEGES ON *.* TO 'PasswordManager'@localhost IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'PasswordManager'@localhost;
 ```
      
      
