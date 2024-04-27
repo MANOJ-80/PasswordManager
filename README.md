@@ -109,7 +109,7 @@ The above command copies the password of the site "mysite" and username "myusern
 ```
 python pm.py g --length 15
 ```
-The above command generates a password of length 15 and copies to clipboard*****
+The above command generates a password of length 15 and copies to clipboard
 
      
 
