@@ -4,7 +4,7 @@
 A secure password manager implemented in Python using MySQL, [SHA256](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms) for hashing the master password, Uses [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) for key hashing, and [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) for encryption/decryption.
 
 ## Features
-
+  
 - **Secure Storage**: All passwords are securely stored using AES encryption.
 - **Master Password**: Uses a strong master password hashed with SHA256 for access.
 - **Key Hashing**: Implements PBKDF2 for deriving encryption keys, enhancing security.
